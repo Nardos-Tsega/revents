@@ -1,8 +1,13 @@
+import EventDashboard from "../../feature/events/eventDashboard/EventDashboard";
+import NavBar from "../../feature/nav/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Re-vents</h1>
+      <NavBar />
+      <div className="bg-[#eaeaea] py-14 h-full">
+        <EventDashboard />
+      </div>
     </div>
   );
 }
