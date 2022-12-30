@@ -3,14 +3,25 @@ import EventDashboard from "../../feature/events/eventDashboard/EventDashboard";
 import NavBar from "../../feature/nav/NavBar";
 
 function App() {
-  
-  const[showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  function handleSelectEvent(event) {
+    setSelectedEvent(event);
+    setShowForm(true);
+  }
 
   return (
-    <div className="App">
-      <NavBar setShowForm={setShowForm}  />
-      <div className="bg-[#eaeaea] py-14 h-full">
-        <EventDashboard showForm={showForm} setShowForm={setShowForm} />
+    <div>
+      <NavBar setShowForm={handleSelectEvent} />
+      <div className="py-20 bg-[#eaeaea]">
+        <EventDashboard
+          key={selectedEvent ? selectedEvent.id : null}
+          selectedEvent={selectedEvent}
+          showForm={showForm}
+          setShowForm={setShowForm}
+          handleSelectEvent={handleSelectEvent}
+        />
       </div>
     </div>
   );
