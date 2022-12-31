@@ -30,7 +30,7 @@ export default function EventForm({
   }
 
   return (
-    <div className="bg-white rounded py-4 flex flex-col px-4 gap-2">
+    <div className="bg-white rounded py-4 flex flex-col px-4 gap-2 max-w-4xl mx-auto">
       <h2 className="text-lg font-semibold my-1">
         {selectedEvent ? "Edit Event" : "Create New Event"}
       </h2>
