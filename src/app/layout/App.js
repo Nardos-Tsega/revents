@@ -17,9 +17,12 @@ function App() {
 
   return (
     <div>
+      <Routes path="/">
+        <Route path="/" element={<HomePage />} />
+      </Routes>
       <NavBar setShowForm={handleSelectEvent} />
       <div className="py-20 bg-[#eaeaea]">
-        <Routes>
+        <Routes path="{'/(.+)}">
           <Route
             path="events"
             element={
@@ -32,7 +35,6 @@ function App() {
               />
             }
           />
-          <Route path="/" element={<HomePage />} />
           <Route path="/events/:id" element={<EventDetailedPage />} />
           <Route path="/createEvent" element={<EventForm />} />
         </Routes>
