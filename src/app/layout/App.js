@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router";
 import EventDashboard from "../../feature/events/eventDashboard/EventDashboard";
+import Home from "../../feature/home/Home";
 import NavBar from "../../feature/nav/NavBar";
 
 function App() {
@@ -13,16 +15,26 @@ function App() {
 
   return (
     <div>
-      <NavBar setShowForm={handleSelectEvent} />
-      <div className="py-20 bg-[#eaeaea]">
-        <EventDashboard
-          key={selectedEvent ? selectedEvent.id : null}
-          selectedEvent={selectedEvent}
-          showForm={showForm}
-          setShowForm={setShowForm}
-          handleSelectEvent={handleSelectEvent}
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <NavBar setShowForm={handleSelectEvent} />
+              <div className="py-20 bg-[#eaeaea]">
+                <EventDashboard
+                  key={selectedEvent ? selectedEvent.id : null}
+                  selectedEvent={selectedEvent}
+                  showForm={showForm}
+                  setShowForm={setShowForm}
+                  handleSelectEvent={handleSelectEvent}
+                />
+              </div>
+            </>
+          }
         />
-      </div>
+      </Routes>
     </div>
   );
 }

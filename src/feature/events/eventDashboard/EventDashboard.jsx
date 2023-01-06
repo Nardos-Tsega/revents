@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import EventForm from "../eventForm.jsx/EventForm";
 import EventList from "./EventList";
 import { sampleData } from "../../../app/api/sampleData";
+import { Route, Routes } from "react-router";
+import EventDetailedPage from "../eventDetailed/EventDetailedPage";
 
 export default function EventDashboard({
   showForm,

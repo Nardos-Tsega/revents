@@ -1,5 +1,6 @@
 import React from "react";
 import { MdLocationPin, MdWatchLater } from "react-icons/md";
+import { Link } from "react-router-dom";
 import EventListAttendee from "./EventListAttendee";
 
 export default function EventListItem({
@@ -49,12 +50,12 @@ export default function EventListItem({
         </p>
 
         <div className="flex gap-2 self-end">
-          <button
-            onClick={() => handleSelectEvent(event)}
+          <Link
+            to={`/events/${event.id}`}
             className="bg-[#17A7AC] px-4 py-2 text-[12px] text-white rounded"
           >
             View
-          </button>
+          </Link>
           <button
             onClick={() => deleteEvent(event.id)}
             className="bg-[#ac1717] px-4 py-2 text-[12px] text-white rounded"
