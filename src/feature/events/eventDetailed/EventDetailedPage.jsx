@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import EventDetailedChat from "./EventDetailedChat";
 import EventDetailedHeader from "./EventDetailedHeader";
 import EventDetailedInfo from "./EventDetailedInfo";
@@ -16,4 +17,10 @@ export default function EventDetailedPage() {
       </div>
     </div>
   );
+=======
+import React from "react";
+
+export default function EventDetailedPage() {
+  return <h1>Event Detail Page</h1>;
+>>>>>>> 13ce4c6baee292e649f95203dbc1e567203617aa
 }
