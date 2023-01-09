@@ -1,6 +1,6 @@
 import React from "react";
 import { MdLocationPin, MdWatchLater } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EventListAttendee from "./EventListAttendee";
 
 export default function EventListItem({
@@ -8,6 +8,8 @@ export default function EventListItem({
   handleSelectEvent,
   deleteEvent,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-md shadow-sm py-6 mb-4">
       {/* header section */}
@@ -51,7 +53,7 @@ export default function EventListItem({
 
         <div className="flex gap-2 self-end">
           <Link
-            to={`/events/${event.id}`}
+            to={`${event.id}`}
             className="bg-[#17A7AC] px-4 py-2 text-[12px] text-white rounded"
           >
             View

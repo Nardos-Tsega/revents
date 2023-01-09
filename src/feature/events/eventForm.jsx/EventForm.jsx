@@ -1,11 +1,12 @@
 import cuid from "cuid";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function EventForm({
   setShowForm,
   addEvent,
   selectedEvent,
   handleUpdateEvent,
+  setHome,
 }) {
   const initialValue = selectedEvent ?? {
     title: "",
@@ -28,6 +29,10 @@ export default function EventForm({
       ? handleUpdateEvent({ ...selectedEvent, ...values })
       : addEvent({ ...values, id: cuid, hostedBy: "Mussie", attendees: [] });
   }
+
+  useEffect(() => {
+    setHome(false);
+  }, [setHome]);
 
   return (
     <div className="bg-white rounded py-4 flex flex-col px-4 gap-2 max-w-4xl mx-auto">

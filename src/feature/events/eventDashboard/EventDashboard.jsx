@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EventForm from "../eventForm.jsx/EventForm";
 import EventList from "./EventList";
 import { sampleData } from "../../../app/api/sampleData";
@@ -10,6 +10,7 @@ export default function EventDashboard({
   setShowForm,
   handleSelectEvent,
   selectedEvent,
+  setHome,
 }) {
   const [events, setEvents] = useState(sampleData);
 
@@ -28,27 +29,33 @@ export default function EventDashboard({
     setEvents(events.filter((evt) => evt.id !== eventId));
   }
 
+  useEffect(() => {
+    setHome(false);
+  }, [setHome]);
+
   return (
-    <div className="max-w-4xl container mx-auto">
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-8">
-          <EventList
-            deleteEvent={deleteEvent}
-            handleSelectEvent={handleSelectEvent}
-            events={events}
-          />
-        </div>
-        <div className="col-span-4">
-          {showForm && (
-            <EventForm
-              selectedEvent={selectedEvent}
+    <div className="py-24 bg-[#eaeaea] min-h-screen">
+      <div className="max-w-4xl container mx-auto">
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-8">
+            <EventList
+              deleteEvent={deleteEvent}
               handleSelectEvent={handleSelectEvent}
-              addEvent={addEvent}
-              setShowForm={setShowForm}
-              setEvents={setEvents}
-              handleUpdateEvent={handleUpdateEvent}
+              events={events}
             />
-          )}
+          </div>
+          <div className="col-span-4">
+            {showForm && (
+              <EventForm
+                selectedEvent={selectedEvent}
+                handleSelectEvent={handleSelectEvent}
+                addEvent={addEvent}
+                setShowForm={setShowForm}
+                setEvents={setEvents}
+                handleUpdateEvent={handleUpdateEvent}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

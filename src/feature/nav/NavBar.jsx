@@ -1,21 +1,22 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import SignedInMenu from "./SignedInMenu";
 import SignedOutMenu from "./SignedOutMenu";
 import { useNavigate } from "react-router";
-=======
-import React from "react";
 import { NavLink } from "react-router-dom";
->>>>>>> 13ce4c6baee292e649f95203dbc1e567203617aa
 
-export default function NavBar({ setShowForm }) {
+export default function NavBar({ setShowForm, home, setHome }) {
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     setAuthenticated(false);
+    setHome(true);
     navigate("/home");
   };
+
+  if (home) {
+    return null;
+  }
 
   return (
     <div className="fixed w-full bg-gradient-to-r from-[#182A73] to-[#17A7AC] h-14 flex items-center">
@@ -26,7 +27,6 @@ export default function NavBar({ setShowForm }) {
             <h1 className="text-lg text-white font-bold">Sheger Events</h1>
           </NavLink>
           <div className="flex items-center gap-4">
-<<<<<<< HEAD
             <h2 className="text-sm font-light text-white">Events</h2>
             {authenticated && (
               <button
@@ -36,18 +36,6 @@ export default function NavBar({ setShowForm }) {
                 Create Event
               </button>
             )}
-=======
-            <NavLink to="/events" className="text-sm font-light text-white">
-              Events
-            </NavLink>
-            <NavLink
-              to="/createEvent"
-              onClick={() => setShowForm(null)}
-              className="text-white px-3 py-2 border-2 text-sm border-white rounded bg-[#17A7AC]"
-            >
-              Create Event
-            </NavLink>
->>>>>>> 13ce4c6baee292e649f95203dbc1e567203617aa
           </div>
         </div>
 
