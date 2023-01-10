@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function EventDetailedHeader() {
   return (
     <div className="flex flex-col bg-white">
@@ -17,7 +19,11 @@ export default function EventDetailedHeader() {
             JOIN THIS EVENT
           </button>
         </div>
-        <button className="px-4 py-2 rounded bg-[#f7995f] text-white text-sm">
+        <button
+          as={Link}
+          to={`/manage/`}
+          className="px-4 py-2 rounded bg-[#f7995f] text-white text-sm"
+        >
           Manage Event
         </button>
       </div>
