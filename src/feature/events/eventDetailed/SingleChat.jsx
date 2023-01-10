@@ -17,7 +17,7 @@ export default function SingleChat() {
 
         <div className="flex gap-2 items-center">
           <MdOutlineReply />
-          <button className="text-[#d9d9d9]">Reply</button>
+          <button className="\">Reply</button>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ export default function EventDetailedPage({ setHome }) {
   return (
     <div className="bg-[#eaeaea] min-h-screen">
       <div className="py-24 container max-w-4xl mx-auto">
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12 gap-4">
           <div className="col-span-8">
             <EventDetailedHeader />
             <EventDetailedInfo />
