@@ -40,10 +40,8 @@ function App() {
           element={<EventDetailedPage setHome={setHome} />}
         />
 
-        <Route
-          path={["/createEvent", "/manage/:id"]}
-          element={<EventForm setHome={setHome} />}
-        />
+        <Route path="/createEvent" element={<EventForm setHome={setHome} />} />
+        <Route path="/manage/:id" element={<EventForm setHome={setHome} />} />
       </Routes>
     </div>
   );

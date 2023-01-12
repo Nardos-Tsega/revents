@@ -21,7 +21,7 @@ export default function EventDetailedHeader() {
         </div>
         <button
           as={Link}
-          to={`/manage/`}
+          to={`/manage/123`}
           className="px-4 py-2 rounded bg-[#f7995f] text-white text-sm"
         >
           Manage Event
